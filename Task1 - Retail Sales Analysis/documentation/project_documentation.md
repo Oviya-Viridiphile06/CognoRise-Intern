@@ -257,6 +257,12 @@ The Sales Analysis dashboard includes:
  - High Value Order Distribution
  - Category Performance Table
 
+<div align="center">
+  <img src="images/Retail sales analysis dashboard.png" alt="Retail Sales Analysis Dashboard" width="85%" />
+  <br/>
+  <ins><b>Sales Analysis Dashboard</b></ins>
+</div>
+
 ### Page 2 — Executive Dashboard
 
 The Executive Dashboard provides a high-level summary through interactive filters, KPI cards and charts.
@@ -286,6 +292,11 @@ The Executive Dashboard provides a high-level summary through interactive filter
  - **Peak Month:** June
  - **Lowest Month:** October
 
+<div align="center">
+  <img src="images/Retail sales executive dashboard.png" alt="Retail Sales Executive Dashboard" width="85%" />
+  <br/>
+  <ins><b>Sales Executive Dashboard</b></ins>
+</div>
 
 ## 💡 11. Key Business Insights
 ### 1. Electronics leads revenue
