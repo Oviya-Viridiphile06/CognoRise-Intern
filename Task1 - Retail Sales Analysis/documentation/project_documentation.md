@@ -1,8 +1,8 @@
-# 🛍️ Retail Sales Analysis — Project Documentation
+# 🛍️ Retail Sales Analysis - Project Documentation
 
 ### Power BI | Power Query | DAX | Excel / CSV
 
-> **An end-to-end retail sales analytics project focused on data cleaning, KPI development, business analysis, and interactive Power BI dashboard development.**
+> **An end-to-end retail sales analytics beginner project focused on data cleaning, KPI development, business analysis, and interactive Power BI dashboard development.**
 
 ## 📌 1. Project Overview
 
