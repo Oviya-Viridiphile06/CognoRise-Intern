@@ -18,7 +18,7 @@ The main objectives are to:
 - Build an interactive Power BI dashboard
 - Generate business insights and recommendations
 
-### Tools Used
+### 🛠️ Tools Used
 
 - Power BI Desktop
 - Power Query
@@ -26,7 +26,7 @@ The main objectives are to:
 - Excel / CSV
 - GitHub
 
-## 2. Dataset Overview
+## 🗃️ 2. Dataset Overview
 
 The original dataset contains **1,000 retail transactions** recorded during 2023 with **16 columns**.
 
@@ -58,7 +58,7 @@ After data cleaning and removing redundant or unnecessary fields, the final anal
 | Total Price | Duplicated `Total Amount` across all records |
 | Sales Rep E-mail | Not required for sales analysis and excluded from the public analysis dataset |
 
-## 3. Data Cleaning and Validation
+## 🧹 3. Data Cleaning and Validation
 
 Data preparation was performed using **Power Query in Power BI**.
 
@@ -70,7 +70,7 @@ It was converted to the **Date** data type using the correct day/month/year inte
 
 Example: `31/12/2023 → 31 December 2023`
 
-## 4. Dataset Limitations
+## ⚠️ 4. Dataset Limitations
 
 The dataset does not contain:
 
@@ -84,7 +84,7 @@ The dataset does not contain:
 Therefore, profit and profit margin were not calculated because the required cost information was unavailable.
 Individual product-level analysis was also not performed because only Product Category is available.
 
-## 5. Power BI DAX Measures
+## 🧮 5. Power BI DAX Measures
 ### Total Revenue
 ```dax
 Total Revenue = 
@@ -166,7 +166,7 @@ DIVIDE(
 )
 ```
 
-## 6. KPI Summary
+## 📊 6. KPI Summary
 
 | KPI                      |   Result |
 | ------------------------ | -------: |
@@ -181,7 +181,7 @@ DIVIDE(
 | High Value Orders        |      299 |
 | High Value Order Rate    |   29.90% |
 
-## 7. Sales Analysis
+## 📈 7. Sales Analysis
 
 ### Product Category
 | Category    |  Revenue | Quantity | Orders |     AOV |
@@ -225,7 +225,7 @@ Revenue was analyzed across:
 The data shows noticeable monthly fluctuations during 2023.
 Since only one year of data is available, these should not be treated as confirmed seasonal trends.
 
-## 8. Delivery Analysis
+## 🚚 8. Delivery Analysis
 
 | Delivery Status |    Orders | Percentage |
 | --------------- | --------: | ---------: |
@@ -233,7 +233,7 @@ Since only one year of data is available, these should not be treated as confirm
 | Pending         |       351 |      35.1% |
 | **Total**       | **1,000** |   **100%** |
 
-## 9. High Value Order Analysis
+## ⭐ 9. High Value Order Analysis
 
 | Order Type |    Orders | Percentage |
 | ---------- | --------: | ---------: |
@@ -241,7 +241,7 @@ Since only one year of data is available, these should not be treated as confirm
 | Standard   |       701 |      70.1% |
 | **Total**  | **1,000** |   **100%** |
 
-## 10. Dashboard
+## 📊 10. Dashboard
 
 ### Page 1 — Sales Analysis
 
@@ -287,47 +287,47 @@ The Executive Dashboard provides a high-level summary through interactive filter
  - **Lowest Month:** October
 
 
-## 11. Key Business Insights
+## 💡 11. Key Business Insights
 ### 1. Electronics leads revenue
-Electronics generated **$166,955**, the highest revenue among the three product categories.
+ - Electronics generated **$166,955**, the highest revenue among the three product categories.
 
 ### 2. Clothing leads sales volume
-Clothing recorded **939 units** and **351 orders**, the highest transaction volume among the categories.
+ - Clothing recorded **939 units** and **351 orders**, the highest transaction volume among the categories.
 
 ### 3. Beauty has the highest category AOV
-Beauty recorded an AOV of approximately **$489.38**, slightly higher than Electronics at approximately **$488.17**.
+ - Beauty recorded an AOV of approximately **$489.38**, slightly higher than Electronics at approximately **$488.17**.
 
 ### 4. San Francisco has the highest city revenue
-San Francisco generated approximately **$71K**, the highest city-level revenue in the dataset.
+ - San Francisco generated approximately **$71K**, the highest city-level revenue in the dataset.
 
 ### 5. Monthly revenue fluctuates
-June recorded the highest monthly revenue at approximately **$56K**, while October recorded the lowest at approximately **$25K**.
+- June recorded the highest monthly revenue at approximately **$56K**, while October recorded the lowest at approximately **$25K**.
 
 ### 6. Delivery status requires monitoring
-Out of 1,000 orders:
- - 649 were completed
- - 351 were pending
+ - Out of 1,000 orders:
+ -- 649 were completed
+ -- 351 were pending
 
 The resulting delivery completion rate was **64.9%**.
 
 ### 7. High-value orders represent 29.9% of transactions
-There were **299 high-value orders**, representing approximately **29.9%** of total orders.
+ - There were **299 high-value orders**, representing approximately **29.9%** of total orders.
 
-## 12. Business Recommendations
+## 🚀 12. Business Recommendations
 ### 1. Strengthen Electronics Sales Strategies
-Since Electronics generated the highest revenue, businesses can examine inventory availability, product assortment and promotional strategies for this category.
+ - Since Electronics generated the highest revenue, businesses can examine inventory availability, product assortment and promotional strategies for this category.
 
 ### 2. Increase Beauty Order Volume
-Beauty has a relatively high AOV but lower order volume. Targeted promotions, bundles and cross-selling could be explored to increase transaction volume.
+ - Beauty has a relatively high AOV but lower order volume. Targeted promotions, bundles and cross-selling could be explored to increase transaction volume.
 
 ### 3. Investigate City-Level Performance
-Differences between higher- and lower-revenue cities can be investigated further using additional information such as store count, customer traffic, marketing expenditure and regional demand.
+ - Differences between higher- and lower-revenue cities can be investigated further using additional information such as store count, customer traffic, marketing expenditure and regional demand.
 
 ### 4. Investigate the October Revenue Decline
-The October decline can be investigated using additional business information such as promotions, inventory availability, holidays and customer demand.
+ - The October decline can be investigated using additional business information such as promotions, inventory availability, holidays and customer demand.
 
 ### 5. Monitor Pending Deliveries
-The **35.1% pending-order proportion** can be monitored regularly to identify delivery bottlenecks and improve order completion.
+ - The **35.1% pending-order proportion** can be monitored regularly to identify delivery bottlenecks and improve order completion.
 
 ## 13. Project Limitations
  - The dataset contains only one year of data, so long-term trends and confirmed seasonality cannot be established.
@@ -337,7 +337,7 @@ The **35.1% pending-order proportion** can be monitored regularly to identify de
  - Marketing expenditure, store count, inventory levels and customer traffic are not available, so causal explanations for sales differences cannot be established.
  - The analysis is based on the fields available in the provided dataset.
 
-## 14. Project Outcome
+## 🏆 14. Project Outcome
 
 The project transformed raw retail transaction data into a structured and validated analysis dataset and developed an interactive Power BI dashboard for business analysis.
 
@@ -351,3 +351,11 @@ The final dashboard enables users to:
  - Monitor delivery completion
  - Identify high-value orders
  - Filter results using interactive slicers
+
+## 🎯 Final Project Summary
+
+This project demonstrates practical experience in:
+
+**Data Cleaning → Data Validation → Power Query → DAX → KPI Development → Exploratory Analysis → Data Visualization → Business Intelligence → Insight Generation**
+
+The project combines technical Power BI skills with business-oriented analytical thinking to convert transactional retail data into an interactive decision-support dashboard.
