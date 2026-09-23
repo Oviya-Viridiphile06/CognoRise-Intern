@@ -340,7 +340,7 @@ The resulting delivery completion rate was **64.9%**.
 ### 5. Monitor Pending Deliveries
  - The **35.1% pending-order proportion** can be monitored regularly to identify delivery bottlenecks and improve order completion.
 
-## 13. Project Limitations
+## ⚠️ 13. Project Limitations
  - The dataset contains only one year of data, so long-term trends and confirmed seasonality cannot be established.
  - Product names are not available, so individual product-level performance cannot be analyzed.
  - Cost and profit fields are not available, so profit and profit margin were not calculated.
