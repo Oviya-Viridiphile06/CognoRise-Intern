@@ -1,143 +1,212 @@
 # 🛒 E-Commerce Customer & Sales Analytics
 
+### MySQL | Power BI | DAX | Excel / CSV
+
+> An end-to-end e-commerce sales analytics project focused on SQL-based data preparation, sales and product analysis, customer and regional insights, and interactive Power BI dashboard development.
+
 ## 📌 Project Overview
 
-The **E-Commerce Customer & Sales Analytics** project focuses on analyzing a large e-commerce dataset using **MySQL, Power BI, and Excel** to understand product performance, pricing patterns, customer segments, regional distribution, shipping costs, and return behavior.
+This project focuses on analyzing e-commerce data using **MySQL and Power BI** to understand sales performance, product and category behavior, customer segments, regional patterns, pricing, shipping, and returns.
 
-The project uses SQL to clean, validate, transform, and aggregate data before connecting the analytical dataset to Power BI. An interactive three-page dashboard presents key performance indicators and business insights through visualizations and summary tables.
+The project follows an end-to-end analytics workflow:
 
-The analysis is designed to support data-driven decisions related to product strategy, pricing, customer segments, logistics, and operational performance.
-
----
-
-## 🎯 Project Objectives
-
-* Use SQL to extract, validate, and transform e-commerce product and customer-segment data.
-* Calculate estimated sales value, discounted selling price, tax, and estimated net value.
-* Analyze product and category performance using pricing, discounts, popularity, and return-rate metrics.
-* Explore customer segments by age group, gender, and location.
-* Examine shipping methods, shipping costs, and return-rate patterns.
-* Build an interactive Power BI dashboard with three analytical pages.
-* Present data-driven observations and recommendations to support business decisions.
+> Raw Dataset → SQL Data Preparation → SQL Analysis → Analytical Dataset → Power BI Dashboard → Business Insights
 
 ---
 
-## 🧰 Tools & Technologies
+## 🎯 Objectives
 
-| Tool                   | Purpose                                                              |
-| ---------------------- | -------------------------------------------------------------------- |
-| **MySQL 8.0**          | Data validation, transformation, aggregation, and analytical queries |
-| **MySQL Workbench**    | SQL development and database management                              |
-| **Microsoft Power BI** | Interactive dashboards and data visualization                        |
-| **Power Query**        | Data preparation and transformation where required                   |
-| **Microsoft Excel**    | Dataset inspection and supporting analysis                           |
-| **GitHub**             | Version control and project documentation                            |
+The main objectives of this project were to:
 
----
-
-## 📂 Dataset Description
-
-The project uses the `diversified_ecommerce_dataset.csv` dataset containing **1,000,000 records and 16 columns**.
-
-### Dataset columns
-
-| Column               | Description                                    |
-| -------------------- | ---------------------------------------------- |
-| `product_id`         | Unique product identifier at the product level |
-| `product_name`       | Name of the product                            |
-| `category`           | Product category                               |
-| `price`              | Original product price                         |
-| `discount`           | Discount percentage                            |
-| `tax_rate`           | Applicable tax percentage                      |
-| `stock_level`        | Available stock level                          |
-| `supplier_id`        | Supplier identifier                            |
-| `customer_age_group` | Customer age segment                           |
-| `customer_location`  | Customer location                              |
-| `customer_gender`    | Customer gender segment                        |
-| `shipping_cost`      | Shipping cost associated with the record       |
-| `shipping_method`    | Shipping method                                |
-| `return_rate`        | Product or record-level return-rate value      |
-| `seasonality`        | Seasonal classification                        |
-| `popularity_index`   | Product popularity indicator                   |
-
-**Dataset considerations**
-
-* The dataset contains repeated product IDs across records.
-* The available columns do not include explicit order IDs, customer IDs, transaction dates, quantities sold, or product costs.
-* Therefore, the analysis uses estimated sales value and record-level measures rather than claiming actual transaction revenue, order volume, customer retention, or profit.
-* The dataset supports customer-segment comparisons, but it does not support identifying individual new and repeat customers.
+- Use SQL to extract, clean, transform, and analyze e-commerce data.
+- Calculate sales-related and customer-level metrics available in the dataset.
+- Analyze performance across **products, categories, regions, and seasonality**.
+- Analyze customer segments using available customer attributes.
+- Identify high-value products and investigate factors affecting their performance.
+- Build an interactive **Power BI dashboard** using the SQL analytical dataset.
+- Present findings and recommendations to support better sales and operational decisions.
 
 ---
 
-## 🗄️ SQL Data Preparation & Analysis
+## 🛠️ Tools & Technologies
 
-The data was imported into MySQL under the database `ecommerce_analytics`, using the table `ecommerce_data`.
+| Tool | Purpose |
+|---|---|
+| **MySQL 8.0** | Data storage, transformation, validation, and analysis |
+| **MySQL Workbench** | SQL query development and execution |
+| **Power BI** | Interactive dashboard and data visualization |
+| **Excel** | Dataset inspection and supporting data preparation |
+| **GitHub** | Project documentation and version control |
 
-### 1. Data validation
+---
 
-SQL was used to inspect the imported dataset and verify its structure and quality.
+## 📂 Dataset
 
-Key validation steps included:
+The project uses a diversified e-commerce dataset containing:
 
-* Checking the total number of records.
-* Reviewing sample rows and column structure.
-* Checking missing values across the dataset.
-* Inspecting distinct product IDs and category distribution.
-* Reviewing pricing, discounts, tax rates, shipping costs, and return rates.
-* Identifying potential duplicate records and repeated product identifiers.
+- **1,000,000 records**
+- **16 attributes**
+- **9,000 unique product IDs**
 
-The missing-value checks returned **zero missing values** for the checked columns.
+### Dataset Attributes
 
-### 2. Data transformation
+- Product ID
+- Product Name
+- Category
+- Price
+- Discount
+- Tax Rate
+- Stock Level
+- Supplier ID
+- Customer Age Group
+- Customer Location
+- Customer Gender
+- Shipping Cost
+- Shipping Method
+- Return Rate
+- Seasonality
+- Popularity Index
 
-A SQL analytical view was created to calculate derived pricing and value metrics.
+The dataset was imported into the MySQL database:
 
-| Metric              | Formula                                      |
-| ------------------- | -------------------------------------------- |
-| Discount Amount     | `price * discount / 100`                     |
-| Selling Price       | `price - discount_amount`                    |
-| Tax Amount          | `selling_price * tax_rate / 100`             |
-| Estimated Net Value | `selling_price + tax_amount - shipping_cost` |
+**Database:** `ecommerce_analytics`
 
-These calculations were used to create the analytical view `vw_ecommerce_analysis`.
+**Main Table:** `ecommerce_data`
 
-A second view, `vw_powerbi_ecommerce`, was created as the prepared dataset for Power BI.
+---
 
-### 3. Product-level aggregation
+# 🔄 Data Preparation & SQL Analysis
 
-A separate `product_performance` table was created to summarize product-level metrics, including:
+## 1. Data Import & Validation
 
-* Product record count
-* Average price
-* Average discount
-* Estimated sales value
-* Average return rate
-* Average shipping cost
-* Average popularity index
-* Average estimated net value
+The raw CSV dataset was imported into MySQL and validated before analysis.
 
-The aggregation uses product identifiers to consolidate repeated product records.
+The validation process included:
 
-### 4. Analytical SQL queries
+- Checking the total number of records
+- Checking missing values
+- Checking unique product IDs
+- Reviewing category distribution
+- Validating price, discount, tax, and shipping fields
+- Reviewing return-rate values
+- Checking customer-segment fields
 
-SQL queries were used to examine:
+After validation, the dataset contained **1,000,000 records and 9,000 unique products**.
 
-* Estimated sales value by category and location
-* Product-level estimated sales performance
-* Average discounts and selling prices
-* Customer age-group and gender distributions
-* Shipping cost by shipping method
-* Return-rate patterns by location and category
-* Seasonal product patterns
-* Product popularity and stock levels
+---
+
+## 2. Data Transformation
+
+SQL was used to transform the raw pricing and product information into an analytical dataset.
+
+### Discount Amount
+
+```text
+Discount Amount = Price × Discount / 100
+```
+
+### Selling Price
+```text
+Selling Price = Price − Discount Amount
+ ```
+
+### Tax Amount
+```text
+Tax Amount = Selling Price × Tax Rate / 100
+```
+
+### Estimated Sales Value
+```text
+Estimated Sales Value = Selling Price
+```
+
+### Estimated Net Value
+```text
+Estimated Net Value = Selling Price + Tax Amount − Shipping Cost
+```
+
+These calculated fields were organized into SQL analytical views and used as the source for Power BI.
+
+A separate `Product Performance` table was also created for product-level analysis.
+
+---
+
+# 📊 SQL Business Analysis
+
+### 💰 Sales & Pricing Analysis
+The analysis covered:
+* Estimated Sales Value
+* Selling Price
+* Discount Amount
+* Tax Amount
+* Estimated Net Value
+* Average price by category
+* Discount patterns
+
+This helped evaluate how pricing and discounts affect the estimated sales value of products.
+
+---
+
+### 📦 Product & Category Analysis
+Product and category performance was analyzed using:
+* Product-level estimated sales value
+* Category-level performance
+* Product popularity
+* Product pricing
+* Discount levels
+* Return rates
+* Estimated net value
+
+This helped identify products and categories requiring further business attention.
+
+---
+
+### 👥 Customer Analysis
+Customer-related analysis was performed using the customer attributes available in the dataset:
+* Customer Age Group
+* Customer Gender
+* Customer Location
+
+These attributes were used to understand customer-segment distribution and regional behavior.
+
+---
+
+### 🌍 Regional Analysis
+Regional performance was analyzed using customer location.
+
+The analysis included:
+* Estimated Sales Value by Location
+* Product distribution by Location
+* Return Rate by Location
+* Shipping Cost by Location
+
+This helped identify differences in sales value, returns, and shipping requirements across locations.
+
+---
+
+### 🚚 Shipping & Operations Analysis
+Shipping-related analysis included:
+* Shipping Method
+* Shipping Cost
+* Shipping Cost by Location
+* Shipping Cost by Shipping Method
+* Relationship between Shipping Cost and Return Rate
+
+This provided an operational view of delivery costs and return behavior.
+
+---
+
+### 🌦️ Seasonality Analysis
+The dataset does not contain transaction dates, so monthly or yearly sales trends could not be calculated.
+
+Instead, the available **Seasonality** attribute was analyzed to understand seasonal product patterns.
 
 ---
 
 # 📊 Power BI Dashboard
+The final Power BI report contains three analytical pages, each designed for a specific business perspective.
 
-The Power BI report contains **three pages**, each focusing on a different analytical perspective.
-
-## 📄 Page 1: Executive Overview
+### 📄 Page 1: Executive Overview
 
 <div align="center">
   <img src="images/Executive Overview.png" alt="Executive Overview" width="85%" />
@@ -145,23 +214,20 @@ The Power BI report contains **three pages**, each focusing on a different analy
   <ins><b>Executive Overview</b></ins>
 </div>
 
-The Executive Overview provides a high-level summary of the e-commerce dataset and its key performance indicators.
+The Executive Overview page provides a high-level summary of the overall e-commerce dataset and key performance indicators.
 
-### Key focus areas
-
-* Overall estimated sales value
-* Product and category distribution
-* Pricing and discount performance
-* Estimated net value
-* High-level comparisons across available business dimensions
-
-### Purpose
-
-This page provides a quick overview of the dataset and helps users identify important performance patterns before exploring product-level and customer-regional details.
+* **Key Focus Areas:** 
+  * Estimated Sales Value
+  * Estimated Net Value
+  * Product and category distribution
+  * Pricing and discount performance
+  * Overall product performance
+  * High-level business comparisons
+* **Purpose:** This page provides a quick overview of overall performance and allows users to identify important patterns before moving into detailed product and customer analysis.
 
 ---
 
-## 📄 Page 2: Product Performance
+### 📄 Page 2: Product Performance
 
 <div align="center">
   <img src="images/Product Performance.png" alt="Product Performance.png" width="85%" />
@@ -169,27 +235,20 @@ This page provides a quick overview of the dataset and helps users identify impo
   <ins><b>Product Performance</b></ins>
 </div>
 
+The Product Performance page focuses on product and category-level performance.
 
-The Product Performance page focuses on understanding how products and categories differ in estimated value, pricing, popularity, and return behavior.
-
-### Key focus areas
-
-* Estimated sales value by product and category
-* Product-level performance comparisons
-* Price and discount patterns
-* Popularity index analysis
-* Return-rate comparisons
-* Product-level summary metrics
-
-### Purpose
-
-This page helps identify products and categories with comparatively high estimated sales value, understand discount patterns, and investigate products with elevated return rates.
-
-It supports product assortment and pricing discussions using the available product-level data.
+* **Key Focus Areas:**
+  * Estimated Sales Value by Product and Category
+  * Product-level performance comparison
+  * Price and discount patterns
+  * Popularity Index
+  * Return Rate
+  * Product-level summary metrics
+* **Purpose:** This page helps identify products and categories with comparatively strong estimated sales value and understand the factors associated with their performance. Products with comparatively high return rates can also be identified for further investigation.
 
 ---
 
-## 📄 Page 3: Customer & Regional Insights
+### 📄 Page 3: Customer & Regional Insights
 
 <div align="center">
   <img src="images/Customer & Regional Insights.png" alt="Customer & Regional Insights" width="85%" />
@@ -197,141 +256,100 @@ It supports product assortment and pricing discussions using the available produ
   <ins><b>Customer & Regional Insights</b></ins>
 </div>
 
-The Customer & Regional Insights page examines customer segments, geographic distribution, and shipping-related patterns.
+The Customer & Regional Insights page focuses on customer segments, locations, shipping, and return behavior.
 
-### Visuals included
+#### Visuals Included
 
-| Visualization                         | Analytical purpose                                             |
-| ------------------------------------- | -------------------------------------------------------------- |
-| Estimated Sales Value by Location     | Compare estimated value across customer locations              |
-| Product Records by Customer Age Group | Understand the distribution of records across age segments     |
-| Shipping Cost by Shipping Method      | Compare shipping costs across delivery methods                 |
-| Return Rate by Customer Location      | Examine location-level return-rate patterns                    |
-| Shipping Cost vs Return Rate          | Explore the relationship between shipping cost and return rate |
-| Location & Shipping Details           | Review location and shipping metrics in a detailed table       |
+| Visualization | Purpose |
+| :--- | :--- |
+| **Estimated Sales Value by Location** | Compare estimated sales value across customer locations |
+| **Product Records by Customer Age Group** | Understand product-record distribution across age segments |
+| **Shipping Cost by Shipping Method** | Compare shipping costs across delivery methods |
+| **Return Rate by Customer Location** | Analyze return-rate patterns across locations |
+| **Shipping Cost vs Return Rate** | Examine the relationship between shipping cost and return rate |
+| **Location & Shipping Details** | Review detailed location and shipping metrics |
 
-### Purpose
-
-This page helps explore how customer segments, locations, shipping methods, and return behavior vary across the dataset.
-
-The shipping-cost and return-rate comparison can be used to identify patterns for further investigation. It does not, by itself, establish that shipping costs cause returns.
+* **Purpose:** This page helps understand how customer segments, locations, shipping methods, and return behavior vary across the dataset. The shipping-cost and return-rate comparison also provides an operational perspective for identifying areas that may require further investigation.
 
 ---
 
-## 🔍 Key Analytical Observations
+# 🔍 Key Findings
 
-The SQL and Power BI analysis supports the following types of observations:
+The analysis provided the following important insights:
+* The dataset contains **1 million e-commerce records** covering **9,000 unique products**.
+* Product and category performance varies based on estimated sales value, pricing, discounts, popularity, and return rates.
+* Customer records show different distributions across age groups, genders, and locations.
+* Estimated sales value varies across customer locations.
+* Shipping methods have different associated shipping costs.
+* Return rates vary across products and locations.
+* Products with high estimated sales value and comparatively high return rates can be prioritized for further investigation.
+* Pricing and discount patterns provide useful information for evaluating product performance.
+* Seasonality provides an additional dimension for understanding product patterns.
 
-* **Category performance:** Compare categories using estimated sales value, product records, and pricing metrics.
-* **Product performance:** Identify products with higher estimated value and examine their discounts, popularity, and return rates.
-* **Customer segments:** Compare age groups and gender segments based on available records and estimated value.
-* **Regional distribution:** Explore how estimated value and return rates vary by customer location.
-* **Shipping patterns:** Compare shipping costs across methods and locations.
-* **Return behavior:** Identify categories or locations with comparatively higher return-rate values.
-* **Seasonality:** Examine seasonal classifications and their relationship with product performance.
+# 💡 Business Recommendations
 
-These are analytical areas supported by the dataset. Specific numerical findings should be added only after confirming the corresponding Power BI visuals or SQL query results.
-
----
-
-## 💡 Business Recommendations
-
-Based on the available analytical dimensions, the following strategies can guide further investigation:
-
-### 1. Improve product and category strategy
-
-* Prioritize categories with comparatively higher estimated sales value.
-* Review lower-performing products to understand their pricing, discount, and popularity patterns.
-* Use product-level comparisons to support inventory and assortment decisions.
-
-### 2. Review discount effectiveness
-
-* Compare estimated sales value across discount levels.
-* Identify products with high discounts but comparatively low estimated value.
-* Evaluate whether discount strategies align with product performance.
-
-### 3. Investigate return-rate patterns
-
-* Review products and locations with higher return-rate values.
-* Investigate product descriptions, quality, customer expectations, and delivery conditions where return rates are elevated.
-* Monitor return behavior before making changes to product or logistics policies.
-
-### 4. Optimize shipping decisions
-
-* Compare shipping costs across available shipping methods.
-* Investigate locations with relatively high shipping costs.
-* Evaluate shipping options while considering delivery experience and return behavior.
-
-### 5. Use customer-segment insights
-
-* Compare age-group and gender distributions to understand the composition of the available records.
-* Use segment-level patterns to guide future customer research and marketing analysis.
-* Collect customer-level and transaction-level data to enable more precise customer behavior analysis.
+### 📦 Product & Category Strategy
+* **Focus on Performance:** Focus on products and categories showing stronger estimated sales performance.
+* **Investigate Returns:** Review products with relatively high return rates to identify possible product or customer-experience issues.
+* **Dual Metrics:** Consider popularity and return rate together when evaluating product performance.
 
 ---
 
-## ⚠️ Limitations
-
-The dataset does not contain several fields required for conventional transaction-level e-commerce analytics.
-
-| Limitation                      | Impact                                                             |
-| ------------------------------- | ------------------------------------------------------------------ |
-| No order ID                     | Actual order volume and order frequency cannot be calculated       |
-| No individual customer ID       | New vs. repeat customer analysis is not possible                   |
-| No transaction date             | Monthly, quarterly, and year-over-year trends cannot be calculated |
-| No quantity sold                | Units sold and conventional revenue calculations are unavailable   |
-| No product cost or profit field | Actual profit and profit margin cannot be calculated               |
-| Repeated product IDs            | Product records must be distinguished from unique products         |
-
-The estimated sales value used in this project is calculated from the available product pricing and discount fields across records. It should not be interpreted as verified transaction revenue.
-
-Similarly, estimated net value is a derived measure based on selling price, tax, and shipping cost. It is not equivalent to accounting profit.
+### 💰 Pricing Strategy
+* **Discount Alignment:** Compare discount levels with estimated sales value.
+* **Review Underperformers:** Review products receiving relatively high discounts without corresponding performance.
+* **Data-Driven Pricing:** Use pricing and discount analysis to support better product-level decisions.
 
 ---
 
-## 📁 Project Structure
-
-```text
-Task2-E-Commerce-Customer-Sales-Analytics/
-│
-├── documentation/
-│   ├── project_documentation.md
-│   └── sql_queries.sql
-│
-├── images/
-│   ├── executive_overview.png
-│   ├── product_performance.png
-│   └── customer_regional_insights.png
-│
-├── powerbi/
-│   └── Ecommerce_Customer_Sales_Analytics.pbix
-│
-├── dataset/
-│   └── diversified_ecommerce_dataset.csv
-│
-└── README.md
-```
-
-The dataset and Power BI file can be excluded from the repository if they are too large or subject to sharing restrictions. The SQL script and dashboard screenshots provide a lightweight record of the analysis.
+### 👥 Customer & Regional Strategy
+* **Segment Profiling:** Use age-group, gender, and location patterns to understand available customer segments.
+* **Target High-Value Regions:** Identify locations with stronger estimated sales performance.
+* **Strategic Planning:** Use regional patterns to support future marketing and operational planning.
 
 ---
 
-## 🚀 Project Outcome
-
-This project demonstrates an end-to-end analytical workflow involving:
-
-* Large-dataset inspection and validation using MySQL
-* SQL-based data transformation and aggregation
-* Creation of analytical views for reporting
-* Product, customer-segment, regional, and shipping analysis
-* Development of a three-page interactive Power BI dashboard
-* Communication of analytical observations and practical business recommendations
-
-The project provides a foundation for more advanced e-commerce analytics when transaction-level, customer-level, and profitability data become available.
+### 🚚 Shipping & Operations
+* **Cost Comparison:** Compare shipping costs across available shipping methods.
+* **Logistics Review:** Investigate locations with comparatively high shipping costs.
+* **Operational Monitoring:** Monitor the relationship between shipping cost and return-rate patterns.
 
 ---
 
-**Project:** E-Commerce Customer & Sales Analytics
-**Internship:** Cognorise
-**Tools:** MySQL, Power BI, Excel
-**Focus:** SQL Analytics | Data Visualization | Business Intelligence
+# 📌 Cognorise Task Coverage
+
+| Cognorise Requirement | Project Implementation |
+| :--- | :--- |
+| **Extract and transform e-commerce data using SQL** | ✅ MySQL data import, validation, transformation, and analytical views |
+| **Calculate revenue and sales metrics** | ✅ Estimated Sales Value, Selling Price, Discount Amount, Tax Amount, and Estimated Net Value |
+| **Calculate order volume and AOV** | ⚠️ Order ID and transaction-level order fields are not available in the dataset |
+| **Calculate customer-level metrics** | ✅ Customer age group, gender, and location analysis |
+| **Analyze products and categories** | ✅ Product and category performance analysis |
+| **Analyze regions** | ✅ Customer location and regional performance analysis |
+| **Analyze time** | ⚠️ Transaction dates are unavailable; Seasonality was analyzed instead |
+| **Identify new vs. repeat customers** | ⚠️ Customer IDs and transaction history are not available |
+| **Analyze purchase frequency** | ⚠️ Individual customer transaction history is not available |
+| **Identify high-revenue / low-profit products** | ⚠️ Actual product cost and profit fields are unavailable; high-value products were evaluated using return rate, discount, popularity, and shipping cost |
+| **Build Power BI dashboard** | ✅ Three-page interactive Power BI dashboard |
+| **Present findings and strategies** | ✅ Product, pricing, customer, regional, shipping, and return-rate recommendations |
+
+> ℹ️ **Note:** The project uses *Estimated Sales Value* rather than claiming actual revenue or profit because the available dataset does not contain order-level revenue, product cost, or profit fields.
+
+# ✅ Project Outcome
+
+This project demonstrates an end-to-end SQL and Power BI data analytics workflow, from raw e-commerce data preparation and validation to SQL-based business analysis and interactive dashboard development.
+
+### 📌 Core Dashboards Focus Areas
+* **Sales Value**
+* **Products & Categories**
+* **Customers & Regions**
+* **Pricing, Shipping & Returns**
+
+### 🎯 Key Takeaway
+The project demonstrates how SQL transformation and Power BI visualization can convert a large e-commerce dataset into meaningful business insights and support data-driven product, pricing, customer, and operational decisions.
+
+### 📌 Final Project Summary
+
+This project demonstrates an end-to-end **E-Commerce Sales Analytics** workflow using **MySQL and Power BI**. A large e-commerce dataset was cleaned, validated, transformed, and analyzed using SQL to generate meaningful sales, product, customer, regional, pricing, shipping, and return-related insights. The resulting analytical data was then used to build an interactive **three-page Power BI dashboard** covering **Executive Overview, Product Performance, and Customer & Regional Insights**.
+
+The project demonstrates how SQL-based data analysis and Power BI visualization can transform raw e-commerce data into clear business insights and support **data-driven product, pricing, customer, regional, and operational decisions**.
