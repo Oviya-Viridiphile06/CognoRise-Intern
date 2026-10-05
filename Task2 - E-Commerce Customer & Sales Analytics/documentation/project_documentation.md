@@ -1,9 +1,4 @@
-<p align="center">
-  <video src="https://github.com" width="100%" controls>
-    Your browser does not support the video tag.
-  </video>
-</p>
-
+![Project Video](Task-2.mp4)
 # 🛒 E-Commerce Customer & Sales Analytics
 
 ### MySQL | Power BI | DAX | Excel / CSV
