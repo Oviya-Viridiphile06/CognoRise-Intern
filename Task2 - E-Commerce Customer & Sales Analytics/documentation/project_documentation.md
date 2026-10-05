@@ -139,7 +139,11 @@ The Power BI report contains **three pages**, each focusing on a different analy
 
 ## 📄 Page 1: Executive Overview
 
-![Executive Overview](../images/executive_overview.png)
+<div align="center">
+  <img src="images/Executive Overview.png" alt="Executive Overview" width="85%" />
+  <br/>
+  <ins><b>Executive Overview</b></ins>
+</div>
 
 The Executive Overview provides a high-level summary of the e-commerce dataset and its key performance indicators.
 
@@ -159,7 +163,11 @@ This page provides a quick overview of the dataset and helps users identify impo
 
 ## 📄 Page 2: Product Performance
 
-![Product Performance](<./Task2 - E-Commerce Customer & Sales Analytics/documentation/images/Product Performance.png>)
+<div align="center">
+  <img src="images/Product Performance.png" alt="Product Performance.png" width="85%" />
+  <br/>
+  <ins><b>Product Performance</b></ins>
+</div>
 
 
 The Product Performance page focuses on understanding how products and categories differ in estimated value, pricing, popularity, and return behavior.
@@ -183,7 +191,11 @@ It supports product assortment and pricing discussions using the available produ
 
 ## 📄 Page 3: Customer & Regional Insights
 
-![Customer & Regional Insights](../images/customer_regional_insights.png)
+<div align="center">
+  <img src="images/Customer & Regional Insights.png" alt="Customer & Regional Insights" width="85%" />
+  <br/>
+  <ins><b>Customer & Regional Insights</b></ins>
+</div>
 
 The Customer & Regional Insights page examines customer segments, geographic distribution, and shipping-related patterns.
 
