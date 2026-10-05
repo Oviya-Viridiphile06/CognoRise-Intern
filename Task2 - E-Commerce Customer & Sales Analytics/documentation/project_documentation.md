@@ -1,3 +1,9 @@
+<p align="center">
+  <video src="https://github.com" width="100%" controls>
+    Your browser does not support the video tag.
+  </video>
+</p>
+
 # 🛒 E-Commerce Customer & Sales Analytics
 
 ### MySQL | Power BI | DAX | Excel / CSV
@@ -270,12 +276,6 @@ The Customer & Regional Insights page focuses on customer segments, locations, s
 | **Location & Shipping Details** | Review detailed location and shipping metrics |
 
 * **Purpose:** This page helps understand how customer segments, locations, shipping methods, and return behavior vary across the dataset. The shipping-cost and return-rate comparison also provides an operational perspective for identifying areas that may require further investigation.
-
-<p align="center">
-  <video src="https://github.com" width="100%" controls>
-    Your browser does not support the video tag.
-  </video>
-</p>
 
 ---
 
