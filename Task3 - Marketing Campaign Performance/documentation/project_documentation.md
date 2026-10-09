@@ -184,7 +184,7 @@ The report contains **three interactive dashboard pages**, each serving a differ
 **Business Purpose:** Offers a high-level view of campaign volume, recorded ROI, conversion, reach, and acquisition cost.
 
 <div align="center">
-  <img src="screenshots/dashboard_overview.png" alt="Marketing Campaign Performance Dashboard — Page 1" width="90%">
+  <img src="images/dashboard_overview.png" alt="Marketing Campaign Performance Dashboard — Page 1" width="90%">
   <br>
   <b>Page 1 — Marketing Campaign Performance Dashboard</b>
 </div>
@@ -214,7 +214,7 @@ The report contains **three interactive dashboard pages**, each serving a differ
 **Business Purpose:** Supports comparative analysis to investigate differences in campaign efficiency and performance across business categories.
 
 <div align="center">
-  <img src="screenshots/campaign_analysis.png" alt="Campaign and Channel Analysis Dashboard — Page 2" width="90%">
+  <img src="images/campaign_analysis.png" alt="Campaign and Channel Analysis Dashboard — Page 2" width="90%">
   <br>
   <b>Page 2 — Campaign & Channel Analysis</b>
 </div>
@@ -254,7 +254,7 @@ The report contains **three interactive dashboard pages**, each serving a differ
 **Business Purpose:** Provides a detailed view of campaign records and performance patterns to support further investigation of strong and weak results.
 
 <div align="center">
-  <img src="screenshots/campaign_insights.png" alt="Campaign Performance and Insights Dashboard — Page 3" width="90%">
+  <img src="images/campaign_insights.png" alt="Campaign Performance and Insights Dashboard — Page 3" width="90%">
   <br>
   <b>Page 3 — Campaign Performance & Insights</b>
 </div>
@@ -290,6 +290,8 @@ The analysis can support the following data-driven actions, subject to validatio
 * The dataset does not, from the listed fields alone, establish actual revenue or profit values.
 * Relationships between acquisition cost, engagement, conversion, and ROI do not establish causation.
 * Budget allocation recommendations should be validated using the underlying data and relevant business context.
+* Some metrics may show similar values across categories, limiting the visible differences in certain charts. These similarities should be interpreted based on the underlying data rather than visual appearance alone.
+
 
 ## 🏆 11. Project Outcome
 
