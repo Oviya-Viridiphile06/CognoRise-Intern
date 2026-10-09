@@ -1,4 +1,3 @@
-![Project Video](Task-2.mp4)
 # 🛒 E-Commerce Customer & Sales Analytics
 
 ### MySQL | Power BI | DAX | Excel / CSV
