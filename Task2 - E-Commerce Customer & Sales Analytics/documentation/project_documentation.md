@@ -40,9 +40,11 @@ The main objectives of this project were to:
 
 ---
 
-## 📂 Dataset
+## 🗃️ 3. Dataset Overview
 
-The project uses a diversified e-commerce dataset containing:
+**Dataset:** [E-Commerce Dataset — Kaggle](https://www.kaggle.com/datasets/malaiarasugraj/e-commerce-dataset/data)
+
+**File:** `diversified_ecommerce_dataset.csv`
 
 - **1,000,000 records**
 - **16 attributes**
